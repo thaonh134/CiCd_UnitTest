@@ -1,0 +1,56 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>ASP.NET</h1>
+    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
+    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+</div>
+
+<div class="row">
+    <form class="form-horizontal form-group" id="fCalculator">
+        <div class="row ">
+            <div class="">A:</div>
+            <div class="input-group"><input id="a" name="a" /></div>
+        </div>
+        <div class="row">
+            <div class="">B:</div>
+            <div class="input-group"><input id="b" name="b" /></div>
+        </div>
+        <div class="row ">
+            <div class="">C:</div>
+            <div class="input-group"><input id="c" name="c" readonly /></div>
+        </div>
+        <div class="row">
+            <button type="button" onclick="sum()">Sum</button>
+            <button type="button" onclick="div()">Div</button>
+
+        </div>
+    </form>
+</div>
+<script>
+    $(document).ready(function () {
+    });
+    function sum() {
+        $.ajax({
+            url: "/home/Sum", type: "GET", dataType: "json", contentType: 'application/json',
+            data: { a: $('#a').val(), b: $('#b').val() },
+            success: function (result) {
+                $('#c').val(result.data);
+            }
+        });
+        alert("sum called");
+    }
+    function div() {
+         $.ajax({
+            url: "/home/div", type: "GET", dataType: "json", contentType: 'application/json',
+            data: { a: $('#a').val(), b: $('#b').val() },
+            success: function (result) {
+                $('#c').val(result.data);
+            }
+        });
+        alert("div called");
+    }
+
+</script>
