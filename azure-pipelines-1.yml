@@ -32,9 +32,6 @@ steps:
   inputs:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
-
-    steps:
-# ...
-# do this near the end of your pipeline in most cases
+    
 - task: PublishBuildArtifacts@1
    
