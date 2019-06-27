@@ -35,3 +35,13 @@ steps:
     
 - task: PublishBuildArtifacts@1
    
+- task: FtpUpload@1
+  displayName: 'FTP Upload: ftp demo 1'
+  inputs:
+    credentialsOption: inputs
+    serverUrl: 'ftp://ftp.site4now.net'
+    username: 'hostfree13401-001'
+    password: thaoIT134
+    rootDirectory: '$(Build.ArtifactStagingDirectory)/_PublishedWebsites/UnitTestDemo'
+    remoteDirectory: /site1/
+    preservePaths: true
