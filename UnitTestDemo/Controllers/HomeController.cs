@@ -16,7 +16,6 @@ namespace UnitTestDemo.Controllers
         public ActionResult Sum(int a, int b)
         {
             var result = CalculateLib.CalCulate.Sum(a, b);
-
             return Json(new { success = true, data = result }, JsonRequestBehavior.AllowGet);
         }
         [HttpGet]
